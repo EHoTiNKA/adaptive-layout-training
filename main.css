@@ -1,12 +1,17 @@
+.bodyWraper {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+}
+
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     margin-bottom: 80px;
-    margin-left: 20px;
-    margin-right: 20px;
     padding-bottom: 20px;
+
 
     border-bottom: 1px solid rgba(202, 196, 196, 0.479);
 }
@@ -15,10 +20,12 @@
     width: 40%;
 }
 
-.headerLinks {
+.menuList {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
 }
 
 .headerImg {
@@ -26,14 +33,62 @@
     border-radius: 5%;
 }
 
-.headerParagraph{
-    padding-right: 80px;
+.menuItem:not(:last-child) {
+    margin-right: 120px;
+}
+
+.menuLink {
     font-size: 24px;
 }
 
+.headerBurgerBtn {
+    display: none;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border: none;
+    outline: none;
+
+    background-color: white;
+}
+
+.headerBurgerBtn span {
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background-color: black;
+    left: 10px;
+
+    transition: transform .5s;
+    will-change: transform;
+}
+
+.headerBurgerBtn span:nth-child(1){
+    transform: translateY(8px);
+}
+
+.headerBurgerBtn span:nth-child(2){}
+
+.headerBurgerBtn span:nth-child(3){
+    transform: translateY(-8px);
+}
 
 
-.card{
+/* KrestAnim */
+
+.header.open .headerBurgerBtn span:nth-child(1){
+    transform: translateY(0) rotate(45deg);
+}
+
+.header.open .headerBurgerBtn span:nth-child(2){
+    opacity: 0;
+}
+
+.header.open .headerBurgerBtn span:nth-child(3){
+    transform: translateY(0) rotate(-45deg);
+}
+
+.card {
     display: flex;
     flex-direction: column;
     max-width: 600px;
@@ -43,44 +98,81 @@
     padding: 10px;
 }
 
-.bodyCardImg{
+.bodyCardImg {
     max-width: 600px;
     border-radius: 10px;
     margin-bottom: 10px;
 }
 
-h2{
+h2 {
     font-size: 32px
 }
 
-.bodyParagr{
+.bodyParagr {
     font-size: 26px;
 }
 
-.bodyGridContent{
+.bodyGridContent {
     display: grid;
     grid-template-columns: repeat(3, auto);
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 
-@media (max-width: 2200px){
-    [class*="bodyGridContent"] {
-        grid-template-columns: repeat(2, 1fr);
-        justify-content: center;
+@media (max-width: 2100px) {
+    .bodyGridContent {
+        grid-template-columns: repeat(2, auto);
     }
-}
 
-@media (max-width: 2200px){
-    [class*="header-spacer"] {
+    .header-spacer {
         width: 20%;
     }
 }
 
-@media (max-width: 1500px){
-    [class*="bodyGridContent"] {
-        grid-template-columns: repeat(1, 1fr);
+
+@media (max-width: 1400px) {
+    .bodyGridContent {
+        grid-template-columns: repeat(1, auto);
         justify-content: center;
+    }
+}
+
+@media (max-width: 1300px) {
+
+    .headerBurgerBtn {
+        display: block;
+        background-color: rgba(162, 166, 173, 0);
+    }
+
+    .headerMenu {
+        position: absolute;
+        right: -250px;
+        top: 0;
+        width: 250px;
+        background-color: rgba(167, 91, 91, 0.788);
+        visibility: hidden;
+        padding: 85px 0px 20px 0px;
+        transition: transform .5s, visibility .5s;
+    }
+
+    .menuList {
+        display: block;
+    }
+
+    .menuItem:not(:last-child) {
+        margin-right: 0px;
+    }
+
+    .menuLink {
+        color: aliceblue;
+        font-size: 26px;
+        display: block;
+        padding: 5px;
+    }
+
+    .header.open .headerMenu {
+        transform: translateX(-100%);
+        visibility: visible;
     }
 }

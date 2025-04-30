@@ -5,19 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Adaptive Layout</title>
     <link rel="stylesheet" href="./main.css" />
+    <script defer src="./main.js"></script>
   </head>
   <body>
-    <div class="contentColumn">
-      <div class="header">
+    <div class="bodyWraper">
+      <header class="header">
         <img src="./pingvi.jpg" alt="logo" class="headerImg" />
         <span class="header-spacer"></span>
-        <div class="headerLinks">
-          <p class="headerParagraph">Новости</p>
-          <p class="headerParagraph">О нас</p>
-          <p class="headerParagraph">Контакты</p>
-          <p class="headerParagraph">Отзывы</p>
-        </div>
-      </div>
+        <nav class="headerMenu" id="menu">
+          <ul class="menuList">
+            <li class="menuItem">
+              <a class="menuLink">Новости</a>
+            </li>
+            <li class="menuItem">
+              <a class="menuLink">О нас</a>
+            </li>
+            <li class="menuItem">
+              <a class="menuLink">Контакты</a>
+            </li>
+            <li class="menuItem">
+              <a class="menuLink">Отзывы</a>
+            </li>
+          </ul>
+        </nav>
+        <button class="headerBurgerBtn" id="burgerButton">
+          <span></span><span></span><span></span>
+        </button>
+      </header>
 
       <div class="bodyGridContent">
         <div class="card1 card">
