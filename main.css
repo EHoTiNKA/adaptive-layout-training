@@ -67,8 +67,6 @@
     transform: translateY(8px);
 }
 
-.headerBurgerBtn span:nth-child(2){}
-
 .headerBurgerBtn span:nth-child(3){
     transform: translateY(-8px);
 }
